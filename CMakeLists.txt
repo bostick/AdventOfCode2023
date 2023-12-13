@@ -40,3 +40,7 @@ add_subdirectory(day10part2)
 add_subdirectory(day11)
 
 add_subdirectory(day11part2)
+
+add_subdirectory(day12)
+
+add_subdirectory(day12part2)
