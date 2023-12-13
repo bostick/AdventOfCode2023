@@ -382,11 +382,12 @@ std::unordered_map<State, uint64_t> analyze(const Record& record, const State& i
 					inside_group = true;
 					// group_count = group_count + 1;
 					current_group_length = 1;
-                    if (sizes_index == -1) {
-                        sizes_index = 0;
-                    } else {
-                        sizes_index++;
-                    }
+                    // if (sizes_index == -1) {
+                    //     sizes_index = 0;
+                    // } else {
+                    //     sizes_index++;
+                    // }
+                    sizes_index++;
 				}
 			} else {
 				if (inside_group) {
@@ -398,20 +399,22 @@ std::unordered_map<State, uint64_t> analyze(const Record& record, const State& i
 						// LOGD("NO 2!");
 						possible = false;
 						// assert(false);
+						break;
 					} else if (current_group_length != record.sizes[sizes_index]) {
 						// assert();
                         // LOGD("NO 1!");
                         possible = false;
+                        break;
                     }
 //					sizes_index++;
 				} else {
 					// nothing
 				}
 			}
-			cursor = cursor << 1;
+			cursor <<= 1;
 		}
 
-		if (inside_group) {
+		if (possible && inside_group) {
             if (sizes_index >= record.sizes.size()) {
                 // LOGD("NO 2!");
                possible = false;
