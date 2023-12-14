@@ -26,6 +26,9 @@ struct Platform {
 
 Platform platform;
 
+std::vector<int> platform_hashes;
+std::vector<int> platform_loads;
+
 
 void parsePlatform(const char *start, const char *end) {
 
@@ -199,7 +202,7 @@ void tiltWest() {
 }
 
 
-void calculateLoad() {
+int calculateLoad() {
 
 	int load = 0;
 
@@ -211,13 +214,14 @@ void calculateLoad() {
 		}
 	}
 
-	LOGD("load: %d", load);
+	// LOGD("load: %d", load);
+	return load;
 }
 
 
-void calculateHash() {
+int calculateHash() {
 
-	uint64_t hash = 0;
+	int hash = 0;
 
 	for (int i = 0; i < platform.row_count; i++) {
 		for (int j = 0; j < platform.col_count; j++) {
@@ -233,7 +237,8 @@ void calculateHash() {
 		}
 	}
 
-	LOGD("hash: %" PRIu64, hash);
+	// LOGD("hash: %" PRIu64, hash);
+	return hash;
 }
 
 
@@ -313,16 +318,58 @@ int main(int argc, char **argv) {
 
 	
 	printPlatform();
-	
+
+	LOGD("analyzing first 200 cycles...");
+
+	auto hash = calculateHash();
+	platform_hashes.push_back(hash);
+	auto load = calculateLoad();
+	platform_loads.push_back(load);
+
 	for (int i = 1; i < 200; i++) {
+		
 		tiltNorth();
 		tiltWest();
 		tiltSouth();
 		tiltEast();
-		LOGD("after cycle %d", i);
-		calculateHash();
-		calculateLoad();
+		// LOGD("after cycle %d", i);
+		auto hash = calculateHash();
+		platform_hashes.push_back(hash);
+		auto load = calculateLoad();
+		platform_loads.push_back(load);
+	
+		// calculateLoad();
 	}
+
+	LOGD("platform_hashes sizes: %zu", platform_hashes.size());
+
+	int period;
+	int offset;
+	bool found = false;
+	for (int i = 0; i < 200 - 1; i++) {
+		for (int j = i + 1; j < 200; j++) {
+			if (platform_hashes[i] == platform_hashes[j]) {
+				LOGD("equal hashes: %d %d", i, j);
+				period = (j - i);
+				offset = (j - (j % period));
+				LOGD("period: %d", period);
+				LOGD("offset: %d", offset);
+				found = true;
+				break;
+			}
+		}
+		if (found) {
+			break;
+		}
+	}
+
+	assert(found);
+
+	int equivalent_cycle = 1000000000 % period + offset;
+	LOGD("equivalent cycle for 1B: %d", equivalent_cycle);
+
+	load = platform_loads[equivalent_cycle];
+	LOGD("load for 1B cycles: %d", load);
 
   	return 0;
 }
