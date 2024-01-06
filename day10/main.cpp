@@ -175,7 +175,7 @@ Tile single_neighbor_to_proceed(Tile t) {
 	default:
 		LOGD("t.input: %c", t.input);
 		assert(false);
-		break;
+		return Tile{};
 	}
 
 	// if (row > 0) {
@@ -340,6 +340,8 @@ void searchMap() {
 
 		set1 = set2;
 	}
+
+	LOGI("distance_to_use: %d", distance_to_use);
 
 	LOGD("DONE!!");
 

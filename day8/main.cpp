@@ -261,7 +261,7 @@ int main(int argc, char **argv) {
 	}
 
 
-	LOGD("steps_taken: %d", steps_taken);
+	LOGI("steps_taken: %d", steps_taken);
 
   	return 0;
 }

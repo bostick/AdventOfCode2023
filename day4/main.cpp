@@ -221,7 +221,7 @@ int main(int argc, char **argv) {
 
 			line[newline - tosearch] = '\0';
 
-			fprintf(stderr, "line: %s\n", line);
+			LOGD("line: %s\n", line);
 
 
 			auto res = handleCard(line);
@@ -239,7 +239,7 @@ int main(int argc, char **argv) {
 
 			tosearch = newline + 1;
 
-			fprintf(stderr, "\n");
+			LOGD();
 
 		} else {
 

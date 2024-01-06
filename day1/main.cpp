@@ -109,7 +109,7 @@ int main(int argc, char **argv) {
 		}
 	}
 
-	fprintf(stderr, "sum: %d\n", sum);
+	LOGI("sum: %d\n", sum);
 
 
   	return 0;

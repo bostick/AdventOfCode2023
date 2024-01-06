@@ -81,8 +81,12 @@ void handleLine(const char *line, State state) {
 }
 
 
-
+//
+// day8part2 
+//
 int main(int argc, char **argv) {
+
+	assert(argc == 2);
 
 	const char *path = "input.txt";
 
@@ -129,6 +133,14 @@ int main(int argc, char **argv) {
 	fclose(file);
 
 	buf[len] = '\0';
+
+
+
+
+	int index_to_use;
+	auto res2 = sscanf(argv[1], "%d", &index_to_use);
+	assert(res2 == 1);
+
 
 
 
@@ -209,7 +221,7 @@ int main(int argc, char **argv) {
 	//
 	// for JQA etc
 	//
-	current_nodes.push_back(544);
+	current_nodes.push_back(index_to_use);
 	
 	// assert(current_node != -1);
 	LOGD("current_nodes size: %zu", current_nodes.size());
@@ -241,7 +253,7 @@ int main(int argc, char **argv) {
 		// LOGD("current_step: %d", current_step);
 		
 		if (all_end_with_z) {
-			LOGD("found the Z at step: %d", steps_taken);
+			LOGI("found the Z at step: %d", steps_taken);
 			// break;
 		}
 

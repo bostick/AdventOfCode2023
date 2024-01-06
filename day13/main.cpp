@@ -310,7 +310,7 @@ int main(int argc, char **argv) {
 		total_count += count;
 	}
 
-	LOGD("total_count: %d", total_count);
+	LOGI("total_count: %d", total_count);
 
 
   	return 0;

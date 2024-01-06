@@ -224,7 +224,8 @@ void computeGalaxyPaths() {
 			current_location.col = b.col;
 			// assert(current_location.col == b.col);
 
-			LOGD("distance galaxy %d to galaxy %d: %" PRId64, i, j, distance);
+			// LOGD("distance galaxy %d to galaxy %d: %" PRId64, i, j, distance);
+			LOGI("%" PRId64, distance);
 
 			total_dist += distance;
 		}

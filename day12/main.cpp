@@ -436,7 +436,7 @@ int main(int argc, char **argv) {
 		total_possible_counts = total_possible_counts + possible_count;
 	}
 
-	LOGD("total_possible_counts: %d", total_possible_counts);
+	LOGI("total_possible_counts: %d", total_possible_counts);
 
   	return 0;
 }

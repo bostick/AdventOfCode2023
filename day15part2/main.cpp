@@ -334,7 +334,7 @@ int main(int argc, char **argv) {
 		}
 	}
 	
-	LOGD("total: %d", total);
+	LOGI("total: %d", total);
 
   	return 0;
 }

@@ -250,7 +250,7 @@ int main(int argc, char **argv) {
 
 			line[newline - tosearch] = '\0';
 
-			fprintf(stderr, "line: %s\n", line);
+			LOGD("line: %s\n", line);
 
 
 			if (copy_map.find(card_num) == copy_map.end()) {
@@ -295,7 +295,7 @@ int main(int argc, char **argv) {
 
 			tosearch = newline + 1;
 
-			fprintf(stderr, "\n");
+			LOGD();
 
 		} else {
 

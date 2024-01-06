@@ -307,12 +307,12 @@ int main(int argc, char **argv) {
 
 			line[newline - tosearch] = '\0';
 
-			fprintf(stderr, "line: %s\n", line);
+			LOGD("line: %s\n", line);
 			LOGD("get_part_numbers for line %d", line_number);
 			auto part_numbers_on_line = get_part_numbers(line, line_number);
 
 			for (auto part_number : part_numbers_on_line) {
-				LOGI("part_number on line: num: %d, row: %d, col_start: %d, col_end: %d", part_number.num, part_number.row, part_number.col_start, part_number.col_end);
+				LOGD("part_number on line: num: %d, row: %d, col_start: %d, col_end: %d", part_number.num, part_number.row, part_number.col_start, part_number.col_end);
 			}
 
 			for (auto part_number : part_numbers_on_line) {

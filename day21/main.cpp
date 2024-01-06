@@ -359,9 +359,7 @@ std::vector<Node> step(std::vector<Node> starts) {
 
 int main(int argc, char **argv) {
 
-	assert(argc == 2);
-
-	const char *path = argv[1];
+	const char *path = "input.txt";
 
 
 
@@ -429,7 +427,7 @@ int main(int argc, char **argv) {
 
 	printSteps(steps);
 
-	LOGD("# steps: %zu", steps.size());
+	LOGI("# steps: %zu", steps.size());
 
   	return 0;
 }

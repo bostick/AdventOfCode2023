@@ -542,7 +542,7 @@ int main(int argc, char **argv) {
 
 			line[newline - tosearch] = '\0';
 
-			fprintf(stderr, "line: %s\n", line);
+			LOGD("line: %s\n", line);
 
 
 			auto res = handleGame(line);
@@ -555,13 +555,13 @@ int main(int argc, char **argv) {
 
 			int power = gmins.redMin * gmins.greenMin * gmins.blueMin;
 
-			LOGI("power: %d", power);
+			LOGD("power: %d", power);
 
 			sum = sum + power;
 
 			tosearch = newline + 1;
 
-			fprintf(stderr, "\n");
+			LOGD();
 
 		} else {
 

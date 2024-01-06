@@ -136,7 +136,7 @@ void calculateLoad() {
 		}
 	}
 
-	LOGD("load: %d", load);
+	LOGI("load: %d", load);
 }
 
 

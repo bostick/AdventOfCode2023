@@ -42,7 +42,7 @@ std::string directionStr(Direction d) {
 		return "START";
 	default:
 		assert(false);
-		break;
+		return "";
 	}
 }
 
@@ -96,6 +96,7 @@ struct Node {
         }
         
         assert(false);
+        return false;
     }
 };
 
@@ -455,6 +456,10 @@ void searchMap(Node start, Node end) {
 		auto q = open[0];
 		open.erase(open.begin());
 
+		if (q == end) {
+			LOGD("found!");
+			break;
+		}
 
         // assert(find(closed.begin(), closed.end(), q) == closed.end());
 		// closed.insert(q);
@@ -470,14 +475,6 @@ void searchMap(Node start, Node end) {
 
 			// LOGD("s:");
 			// printNode(s);
-
-			if (s == end) {
-				detailss[s.row][s.col][s.direction][s.segment_len].parent_row = q.row;
-				detailss[s.row][s.col][s.direction][s.segment_len].parent_col = q.col;
-            	detailss[s.row][s.col][s.direction][s.segment_len].parent_direction = q.direction;
-            	detailss[s.row][s.col][s.direction][s.segment_len].parent_segment_len = q.segment_len;
-				LOGD("found!");
-			}
 
 			// if (find(closed.begin(), closed.end(), s) != closed.end()) {
 			// 	continue;
@@ -559,7 +556,9 @@ void searchMap(Node start, Node end) {
 
 
 
-
+//
+// ./day17part2 input.txt 0 0 140 140 S 0
+//
 int main(int argc, char **argv) {
 
 	assert(argc == 8);
@@ -669,6 +668,8 @@ int main(int argc, char **argv) {
 
 	Node start = Node{start_row, start_col, start_direction, start_segment_len};
 	
+	int least_heat_loss = 1000000;
+
 	//
 	// only need to test RIGHT = 0 and DOWN = 1
 	//
@@ -684,13 +685,19 @@ int main(int argc, char **argv) {
 			auto heat_loss = calculateHeatLoss(start, end);
 
 			if (heat_loss != -1) {
+
 				printPath(start, end);
+
+				if (heat_loss < least_heat_loss) {
+					least_heat_loss = heat_loss;
+				}
 			}
 
 			LOGD();
 		}
 	}
 
+	LOGI("least_heat_loss: %d", least_heat_loss);
 
   	return 0;
 }

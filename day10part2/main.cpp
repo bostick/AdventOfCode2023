@@ -284,7 +284,7 @@ Tile single_neighbor_to_proceed(Tile t) {
 	default:
 		LOGD("t.input: %c", t.input);
 		assert(false);
-		break;
+		return Tile{};
 	}
 }
 
@@ -392,7 +392,7 @@ Tile single_neighbor_to_proceed_direction(Tile t) {
 	default:
 		LOGD("t.input: %c", t.input);
 		assert(false);
-		break;
+		return Tile{};
 	}
 }
 
@@ -1313,7 +1313,7 @@ int main(int argc, char **argv) {
 	}
 	LOGD();
 
-	LOGD("inside_count: %d", inside_count);
+	LOGI("inside_count: %d", inside_count);
 
   	return 0;
 }

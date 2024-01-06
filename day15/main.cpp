@@ -162,7 +162,7 @@ int main(int argc, char **argv) {
 		total += hash;
 	}
 	
-	LOGD("total: %d", total);
+	LOGI("total: %d", total);
 
   	return 0;
 }

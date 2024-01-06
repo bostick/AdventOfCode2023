@@ -631,15 +631,13 @@ void calculateEnergized() {
 	}
 
 
-	LOGD("energized_count: %d", energized_count);
+	LOGI("energized_count: %d", energized_count);
 }
 
 
 int main(int argc, char **argv) {
 
-	assert(argc == 2);
-
-	const char *path = argv[1];
+	const char *path = "input.txt";
 
 	FILE *file = fopen(path, "r");
 

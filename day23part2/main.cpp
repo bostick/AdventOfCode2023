@@ -206,8 +206,8 @@ void printPath(Node start, Node end) {
 	// }
 	// LOGD();
 
-	LOGD("steps: %d", steps);
-	LOGD();
+	LOGI("steps: %d", steps);
+	LOGI();
 
 }
 

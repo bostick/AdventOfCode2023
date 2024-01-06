@@ -422,9 +422,9 @@ std::optional<GamePossibility> handleGame(const char *line) {
 	auto res = testGame(game);
 
 	if (res) {
-		LOGI("game %d POSSIBLE", id);
+		LOGD("game %d POSSIBLE", id);
 	} else {
-		LOGI("game %d IMPOSSIBLE", id);
+		LOGD("game %d IMPOSSIBLE", id);
 	}
 
 	return GamePossibility{id, res};
@@ -498,7 +498,7 @@ int main(int argc, char **argv) {
 
 			line[newline - tosearch] = '\0';
 
-			fprintf(stderr, "line: %s\n", line);
+			LOGD("line: %s\n", line);
 
 
 			auto res = handleGame(line);
@@ -516,7 +516,7 @@ int main(int argc, char **argv) {
 
 			tosearch = newline + 1;
 
-			fprintf(stderr, "\n");
+			LOGD();
 
 		} else {
 

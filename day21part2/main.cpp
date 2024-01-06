@@ -210,19 +210,21 @@ int calculatePositions(char **world_read) {
 	}
 
 
-	// for (int i = 0; i < 13; i++) {
-	// 	LOGD("%4d %4d %4d %4d %4d %4d %4d %4d %4d %4d %4d %4d %4d",
-	// 		positions_array[i][0], positions_array[i][1], positions_array[i][2],
-	// 		positions_array[i][3], positions_array[i][4], positions_array[i][5],
-	// 		positions_array[i][6], positions_array[i][7], positions_array[i][8],
-	// 		positions_array[i][9], positions_array[i][10], positions_array[i][11], positions_array[i][12]);
-	// }
+	for (int i = 0; i < 13; i++) {
+		LOGD("%4d %4d %4d %4d %4d %4d %4d %4d %4d %4d %4d %4d %4d",
+			positions_array[i][0], positions_array[i][1], positions_array[i][2],
+			positions_array[i][3], positions_array[i][4], positions_array[i][5],
+			positions_array[i][6], positions_array[i][7], positions_array[i][8],
+			positions_array[i][9], positions_array[i][10], positions_array[i][11], positions_array[i][12]);
+	}
 
 	return positions;
 }
 
 
-
+//
+// ./day21part2 input2.txt 16
+//
 int main(int argc, char **argv) {
 
 	assert(argc == 3);

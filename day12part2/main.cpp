@@ -1067,7 +1067,7 @@ int main(int argc, char **argv) {
 		total_possible_counts += possible_counts;
 	}
 
-	LOGD("total_possible_counts: %" PRIu64, total_possible_counts);
+	LOGI("total_possible_counts: %" PRIu64, total_possible_counts);
 
 
 

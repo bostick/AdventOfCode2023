@@ -243,7 +243,7 @@ int cardVal(char c) {
 		return 14;
 	default:
 		assert(false);
-		break;
+		return -1;
 	}
 }
 
@@ -455,7 +455,7 @@ int main(int argc, char **argv) {
 		LOGD();
 	}
 
-	LOGD("total_winnings: %d", total_winnings);
+	LOGI("total_winnings: %d", total_winnings);
 
   	return 0;
 }

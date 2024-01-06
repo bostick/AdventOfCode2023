@@ -636,9 +636,7 @@ int calculateEnergized(std::vector<Ray> stable_rays) {
 
 int main(int argc, char **argv) {
 
-	assert(argc == 2);
-
-	const char *path = argv[1];
+	const char *path = "input.txt";
 
 	FILE *file = fopen(path, "r");
 
@@ -761,7 +759,7 @@ int main(int argc, char **argv) {
 		}
 	}
 
-	LOGD("max_energized_count: %d", max_energized_count);
+	LOGI("max_energized_count: %d", max_energized_count);
 
   	return 0;
 }

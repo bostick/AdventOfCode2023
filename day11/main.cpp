@@ -188,12 +188,12 @@ void findGalaxiesInExpandedSpace() {
 		}
 	}
 
-	LOGD("galaxies:");
-	LOGD("{");
+	LOGI("galaxies:");
+	LOGI("{");
 	for (auto g : galaxies) {
-		LOGD("{%d, %d},", g.row, g.col);
+		LOGI("{%d, %d},", g.row, g.col);
 	}
-	LOGD("}");
+	LOGI("}");
 }
 
 
